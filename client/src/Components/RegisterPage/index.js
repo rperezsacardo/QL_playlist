@@ -13,20 +13,18 @@ const RegisterPage = (props) => {
   const [result, setResult] = useState('');
 
   const onSubmitForm = (event) => {
-    console.log(props.history);
     event.preventDefault();
     signUp({ email, password, admin, username, premium })
       .then((result) => {
-        // if (!props.admin) {
-        //   setNewUser({ ...result });
-
-        //   props.history.push('/playlist');
-        //   setTimeout(() => {}, 4000); //
-        //   //return props.update();
-        // } else {
-        console.log(result);
-        setResult('New user created!');
-        props.history.push('/admin');
+        if (!props.admin) {
+          setNewUser({ ...result });
+          props.history.push('/playlist');
+          setTimeout(() => {}, 4000); //
+          //return props.update();
+        } else {
+          setResult('New user created!');
+          props.history.push('/admin');
+        }
       })
       .catch((error) => {
         setResult(`Fail! check console to see more`);
@@ -45,7 +43,7 @@ const RegisterPage = (props) => {
             value={email}
             type='email'
             onChange={(e) => setEmail(e.target.value)}
-            placeholder='email@email.com'
+            placeholder='rsacardo@quleap.com'
             id='email-input'
           />
         </div>

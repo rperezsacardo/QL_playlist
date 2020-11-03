@@ -50,7 +50,12 @@ const Playlist = () => {
     if ((premium && userPlaylist.length >= 5) || (!premium && userPlaylist.length >= 3))
       return <h4>Your playlist it's full, you can have up to {(premium && 5) || 3}</h4>;
     if ((premium && userPlaylist.length <= 5) || (!premium && userPlaylist.length <= 3))
-      return <h4>You can Add {(premium && 5 - userPlaylist.length) || 3 - userPlaylist.length}</h4>;
+      return (
+        <h4>
+          You can Add up to {(premium && 5) || 3} songs. You have:{' '}
+          {(premium && 5 - userPlaylist.length) || 3 - userPlaylist.length}
+        </h4>
+      );
   };
   const filterArray = [].concat(
     // debug, should prevent songs  with same id

@@ -35,7 +35,9 @@ router.post('/sign-up', (req, res, next) => {
               userId: response.id,
               email: response.email,
               username: response.username,
-              playlist: response.playlist
+              playlist: response.playlist,
+              admin: response.adminPrivileges,
+              premium: response.premium
             };
 
             res.cookie('user', userData, { httpOnly: true });
@@ -82,7 +84,7 @@ router.post('/sign-in', (req, res, next) => {
         };
 
         res.cookie('user', userData, { httpOnly: true });
-        
+
         res.json(userData);
       } else {
         return Promise.reject(new Error('Wrong  email or password.'));
@@ -94,7 +96,6 @@ router.post('/sign-in', (req, res, next) => {
 });
 // Send user basic information
 router.get('/me', routeGuard, (req, res) => {
-  console.log('me');
   res.json({
     user: req.cookies.user || null
   });

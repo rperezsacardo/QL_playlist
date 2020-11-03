@@ -7,7 +7,7 @@ import { UList, FullNavBar, LogoImage, LefNavBar, RightNavBar } from './../../st
 
 const NavBar = (props) => {
   const [user, setUser] = useState(false);
-  console.log(props.user);
+ 
 
   const userInfo = () => {
     loadUserInfo()

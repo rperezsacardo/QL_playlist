@@ -17,7 +17,7 @@ import { loadUserInfo } from './../utils/authenticationApi';
 const App = () => {
   const [user, setUser] = useState(false);
   const [userUpdated, setUserUpdate] = useState(false);
-  //Alternative to provide User obj for all app
+  //Alternative to provide User obj for all app // Debug
   const userInfo = () => {
     loadUserInfo()
       .then((result) => {
@@ -26,7 +26,6 @@ const App = () => {
       .catch((error) => console.log(error));
   };
   const handleUserUpdated = () => {
-    console.log('up');
     setUserUpdate(!userUpdated);
   };
   useEffect(() => {
