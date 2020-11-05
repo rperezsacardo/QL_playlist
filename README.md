@@ -1,9 +1,5 @@
 # QL_playlist | Ricardo Sacardo
 
-## Installation
-
-`´´´´
-npm install
 
 # QL Playlist
 
